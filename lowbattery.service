@@ -1,0 +1,10 @@
+[Unit]
+Description=Desliga o sistema ao atingir bateria baixa
+
+[Service]
+ExecStart=/usr/local/bin/shutdown_on_low_battery.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
