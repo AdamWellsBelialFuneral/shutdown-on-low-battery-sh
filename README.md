@@ -1,4 +1,6 @@
-Shutdown Linux when battery is 10% and use notify-send and wall to notify
+Shutdown Linux when battery is 10% and use notify-send and wall to notify if they exist
+
+DETAILS: By default the battery it looks for is BAT0. Verify with 'ls /sys/class/power_supply/'
 
 1. sudo chmod +x /usr/local/bin/shutdown_on_low_battery.sh
 
