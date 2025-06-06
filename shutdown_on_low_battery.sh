@@ -11,10 +11,11 @@ while true; do
         if [[ "$status" == "Discharging" && "$capacity" -le $LOW_BATTERY_THRESHOLD ]]; then
             echo "Bateria abaixo de ${LOW_BATTERY_THRESHOLD}%, desligando..."
 
-            notify-send "⚠️ Bateria crítica!" "O sistema será desligado em 30 segundos..."
-            wall "⚠️ Bateria crítica! Desligando em 30 segundos..."
-            sleep 30
+            # Notifica apenas se os comandos existirem
+            command -v notify-send >/dev/null && notify-send "⚠️ Bateria crítica!" "O sistema será desligado em 30 segundos..."
+            command -v wall >/dev/null && wall "⚠️ Bateria crítica! Desligando em 30 segundos..."
 
+            sleep 30
             systemctl poweroff
             exit 0
         fi
